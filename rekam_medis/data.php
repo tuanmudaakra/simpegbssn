@@ -18,13 +18,9 @@ require_once 'cekrekam.php';
 			<thead>
 				<tr>
 					<th>No</th>
-					<th>Tanggal Periksa</th>
-					<th>Nama Pasien</th>
-					<th>Keluhan</th>
-					<th>Nama Dokter</th>
-					<th>Diagnosa</th>
-					<th>Poliklinik</th>
-					<th>Data Obat</th>
+					<th>Nama Pegawai</th>
+					<th>Kantor</th>
+					<th>Gaji</th>
 					<th><i class="glyphicon glyphicon-cog"></i></th>
 				</tr>
 			</thead>
@@ -32,9 +28,8 @@ require_once 'cekrekam.php';
 				<?php
 				$no = 1;
 				$query = "SELECT * FROM tb_rekammedis
-		INNER JOIN tb_pasien ON tb_rekammedis.id_pasien = tb_pasien.id_pasien
-		INNER JOIN tb_dokter ON tb_rekammedis.id_dokter = tb_dokter.id_dokter
-		INNER JOIN tb_poliklinik ON tb_rekammedis.id_poli = tb_poliklinik.id_poli
+		INNER JOIN tb_dokter ON tb_rekammedis.id_dokter = tb_dokter.id_pegawai
+		INNER JOIN tb_poliklinik ON tb_rekammedis.id_poli = tb_poliklinik.id_kantor
 	";
 
 				try {
@@ -46,24 +41,9 @@ require_once 'cekrekam.php';
 				?>
 						<tr>
 							<td><?= $no++; ?></td>
-							<td><?= tgl_indo($data['tgl_periksa']); ?></td>
-							<td><?= $data['nama_pasien']; ?></td>
-							<td><?= strip_tags($data['keluhan']); ?></td>
-							<td><?= $data['nama_dokter']; ?></td>
-							<td><?= $data['diagnosa']; ?></td>
-							<td><?= $data['nama_poli']; ?></td>
-							<td>
-								<?php
-								$sql_obat = $conn->prepare("SELECT * FROM tb_rm_obat JOIN tb_obat ON tb_rm_obat.id_obat = tb_obat.id_obat WHERE id_rm = :id_rm");
-								$sql_obat->bindParam(':id_rm', $data['id_rm']);
-								$sql_obat->execute();
-								$data_obat = $sql_obat->fetchAll(PDO::FETCH_ASSOC);
-
-								foreach ($data_obat as $obat) {
-									echo $obat['nama_obat'] . "<br>";
-								}
-								?>
-							</td>
+							<td><?= $data['nama_pegawai']; ?></td>
+							<td><?= $data['nama_kantor']; ?></td>
+							<td>Rp<?= $data['obat']; ?></td>
 							<td>
 								<form action="del.php" method="post">
 									<input type="hidden" name="id" value="<?= $data['id_rm']; ?>">
