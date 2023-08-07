@@ -6,11 +6,11 @@ require_once 'cekrekam.php';
 ?>
 
 <div class="box">
-	<h1>Rekam Medis</h1>
+	<h1>Data Gaji</h1>
 	<h4>
 		<div class="pull-right">
 			<a href="" class="btn btn-default"><i class="glyphicon glyphicon-refresh"></i></a>
-			<a href="add.php" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>Tambah Rekam Medis</a>
+			<a href="add.php" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>Tambah Data</a>
 		</div>
 	</h4>
 	<div class="table-responsive" style="margin-top: 70px;">

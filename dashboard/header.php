@@ -66,10 +66,7 @@ require_once "../assets/libs/vendor/autoload.php";
                 <?php endif; ?>
                 <?php if ($_SESSION['user_level'] == 2) : ?>
                     <li>
-                        <a href="<?= base_url('obat/data.php') ?>"><i class="glyphicon glyphicon-tags"></i> Data Obat</a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url('rekam_medis/data.php') ?>"><i class="glyphicon glyphicon-user"></i> Rekam Medis</a>
+                        <a href="<?= base_url('rekam_medis/data.php') ?>"><i class="glyphicon glyphicon-user"></i> Data Gaji</a>
                     </li>
                 <?php endif; ?>
                 <?php if ($_SESSION['user_level'] == 3) : ?>
