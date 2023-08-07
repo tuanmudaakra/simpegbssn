@@ -1,5 +1,5 @@
-# rekam-medis-native
-Aplikasi rumah sakit sederhana
+# Sistem Kepegawaian
+Aplikas Sisten Kepegawaian Sederhana
 
 <h3>Fitur</h3>
 1. Login Sederhana.<br>
